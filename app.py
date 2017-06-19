@@ -33,7 +33,8 @@ def index():
   current_ticker = request.args.get("current_ticker")
   if current_ticker == None:
     current_ticker = 'GOOG'
-  plot = create_plot(current_ticker)
+  if request.method == 'POST':
+    plot = create_plot(current_ticker)
 		
   # Embed plot into HTML via Flask Render
   script, div = components(plot)
