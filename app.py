@@ -6,6 +6,8 @@ from bokeh.layouts import row
 from bokeh.plotting import figure
 from bokeh.embed import components
 
+app = Flask(__name__)
+
 def create_plot(company):
   tick=company.upper()
   apiKey='DsfYw6GwZRN_j6Pq_cSW'
@@ -21,7 +23,6 @@ def create_plot(company):
   r = p.line(rdf['Date'], rdf['Close'], color="#2222aa", line_width=3)
   return r
 
-app = Flask(__name__)
 
 @app.route('/')
 def main():
