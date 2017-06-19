@@ -31,10 +31,10 @@ def main():
 @app.route('/index')#, methods=['GET','POST'])
 def index():
   current_ticker=request.args.get("ticker")
-  #if current_ticker == None:
-  #  plot = create_plot('GOOG')
+  if current_ticker == None:
+    plot = create_plot('GOOG')
   #if request.method == 'POST':
-    plot = create_plot(current_ticker)
+  plot = create_plot(current_ticker)
   #else:
   #  plot = create_plot('GOOG')		
   # Embed plot into HTML via Flask Render
