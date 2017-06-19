@@ -19,8 +19,9 @@ def create_plot(company):
   r1=r.json()
   rdf=pd.DataFrame(r1['dataset_data']['data'],columns=r1['dataset_data']['column_names'])
   rdf['Date'] = pd.to_datetime(rdf['Date'])
-  p = figure(title="Closing price for each day of the past month for :%s" %tick, x_axis_type="datetime", plot_height=300, plot_width=600)
+  p = figure(title="Closing price for each day of the past month for: %s" %tick, x_axis_type="datetime", x_axis_label='Date', plot_height=600, plot_width=1100)
   r = p.line(rdf['Date'], rdf['Close'], color="#2222aa", line_width=3)
+  p.grid[0].ticker.desired_num_ticks = 15
   return p
 
 
