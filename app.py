@@ -21,7 +21,7 @@ def create_plot(company):
   rdf['Date'] = pd.to_datetime(rdf['Date'])
   p = figure(title="Closing price for each day of the past month", plot_height=300, plot_width=600)
   r = p.line(rdf['Date'], rdf['Close'], color="#2222aa", line_width=3)
-  return r
+  return p
 
 
 @app.route('/')
@@ -30,10 +30,10 @@ def main():
 
 @app.route('/index')
 def index():
-  current_ticker = request.args.get("ticker")
+  current_ticker = request.args.get("current_ticker")
   if current_ticker == None:
-    current_ticker = "GOOG"
-  plot = create_plot(ticker)
+    current_ticker = 'GOOG'
+  plot = create_plot(current_ticker)
 		
   # Embed plot into HTML via Flask Render
   script, div = components(plot)
