@@ -30,7 +30,7 @@ def main():
 
 @app.route('/index',methods=['GET','POST'])
 def index():
-  current_ticker = request.args.get("current_ticker")
+  current_ticker = request.args.get('current_ticker')
   #if current_ticker == None:
   #  plot = create_plot('GOOG')
   if request.method == 'POST':
