@@ -11,15 +11,15 @@ app = Flask(__name__)
 def create_plot(company):
   tick=company.upper()
   apiKey='DsfYw6GwZRN_j6Pq_cSW'
-  startD='20170519'
-  endD='20170618'
+  startD='20170517'
+  endD='20170616'
   getURL="https://www.quandl.com/api/v3/datasets/WIKI/%s/data.json" %tick
   para="&api_key=%s&start_date=%s&end_date%s" % (apiKey,startD,endD)
   r=requests.get(getURL,para)
   r1=r.json()
   rdf=pd.DataFrame(r1['dataset_data']['data'],columns=r1['dataset_data']['column_names'])
   rdf['Date'] = pd.to_datetime(rdf['Date'])
-  p = figure(title="Closing price for each day of the past month for: %s" %tick, x_axis_type="datetime", x_axis_label='Date', plot_height=600, plot_width=1100)
+  p = figure(title="Closing price for each day of the past month for: %s" %tick, x_axis_type="datetime", x_axis_label='Date', plot_height=500, plot_width=900)
   r = p.line(rdf['Date'], rdf['Close'], color="#2222aa", line_width=3)
   p.grid[0].ticker.desired_num_ticks = 15
   return p
