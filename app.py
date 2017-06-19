@@ -28,7 +28,7 @@ def create_plot(company):
 def main():
   return redirect('/index')
 
-@app.route('/index',methods=['GET','POST'])
+@app.route('/index', methods=['GET','POST'])
 def index():
   current_ticker=request.args.get('current_ticker')
   #if current_ticker == None:
