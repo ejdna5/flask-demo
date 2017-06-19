@@ -32,7 +32,7 @@ def main():
 def index():
   current_ticker=request.args.get("ticker")
   if current_ticker == None:
-    plot = create_plot('GOOG')
+    create_plot('GOOG')
   #if request.method == 'POST':
   plot = create_plot(current_ticker)
   #else:
