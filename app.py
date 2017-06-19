@@ -30,7 +30,7 @@ def main():
 
 @app.route('/index', methods=['GET','POST'])
 def index():
-  current_ticker=request.args.get("ticker")
+  current_ticker=request.form.get("ticker")
   if current_ticker == None:
     current_ticker='GOOG'
   #if request.method == 'POST':
