@@ -30,14 +30,14 @@ def main():
 
 @app.route('/index',methods=['GET'])
 def index():
-  #current_ticker = request.args.get("current_ticker")
+  current_ticker = request.args.get("current_ticker")
   if current_ticker == None:
     current_ticker = 'GOOG'
   plot = create_plot(current_ticker)
 		
   # Embed plot into HTML via Flask Render
   script, div = components(plot)
-  return render_template("index.html", response=request.args("current_ticker"), script=script, div=div, current_ticker=current_ticker)
+  return render_template("index.html", script=script, div=div, current_ticker=current_ticker)
 
 if __name__ == '__main__':
   app.run(port=33507)
