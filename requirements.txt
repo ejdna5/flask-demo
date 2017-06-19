@@ -11,4 +11,3 @@ scipy
 numpy
 pandas
 bokeh
-web: gunicorn app:app
