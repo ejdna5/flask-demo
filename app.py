@@ -19,7 +19,7 @@ def create_plot(company):
   r1=r.json()
   rdf=pd.DataFrame(r1['dataset_data']['data'],columns=r1['dataset_data']['column_names'])
   rdf['Date'] = pd.to_datetime(rdf['Date'])
-  p = figure(title="Closing price for each day of the past month", plot_height=300, plot_width=600)
+  p = figure(title="Closing price for each day of the past month for :%s" %tick, plot_height=300, plot_width=600)
   r = p.line(rdf['Date'], rdf['Close'], color="#2222aa", line_width=3)
   return p
 
